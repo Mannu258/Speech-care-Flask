@@ -1,0 +1,72 @@
+.faq-header {
+  background-color:#450e0a;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+}
+
+.faq-question {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.faq-answer {
+  font-size: 16px;
+}
+
+.faq-icon-blue {
+  color: #007bff;
+}
+
+.faq-icon-orange {
+  color: #ff9800;
+}
+
+.faq-illustration {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.illu {
+  height: 300px;
+}
+
+.what {
+  height: 300px;
+}
+
+header .header-nav .nav-img img {
+  width: 50px;
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  font-size: 31px;
+  width: 63px;
+  height: 64px;
+  border-radius: 150%;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 1000;
+  /* High z-index to ensure visibility */
+}
+
+.whatsapp-button {
+  background-color: #25d366;
+  color: white;
+  z-index: 1100;
+  /* Higher z-index than the call button */
+}
+@media only screen and (max-width: 768px) {
+  html {
+      background-size: contain; /* Adjust as needed */
+  }
+}
+header .header-nav .nav-item ul li{
+  padding: 19px;
+}
