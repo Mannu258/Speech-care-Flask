@@ -28,13 +28,22 @@ with app.app_context():
 class Detail_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(60), nullable=False)
-    Email = db.Column(db.String(120), unique=True, nullable=False)
+    Email_ID = db.Column(db.String(120), unique=True, nullable=False)
     Mobile = db.Column(db.String(10), nullable=False)
     Message = db.Column(db.Text, nullable=False)
     Date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return f"<Details {self.Name} {self.Date}>"
+    
+
+class Crediantials(db.Model):
+    ID = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(200), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"{self.username}"
 
 
 class Email_Model(db.Model):
@@ -55,12 +64,16 @@ def index():
             mobile = request.form["mobile"]
             msg = request.form["msg"]
             print("All details is running")
-            details = Detail_Model(Name=name, Email=email, Mobile=mobile, Message=msg)
-            db.session.add(details)
-            db.session.commit()
+            try:
+                details = Detail_Model(Name=name, Email_ID=email, Mobile=mobile, Message=msg)
+                db.session.add(details)
+                db.session.commit()
+            except Exception as e:
+                print(e)
             try:
                 from Auto_mail import send_mail
-                send_mail(name, email, mobile, msg)
+                pass
+                # send_mail(name, email, mobile, msg)
             except Exception as e:
                 print(f"An error occurred: {e}")
             return render_template("Thank-You.html")
@@ -68,11 +81,28 @@ def index():
             email = request.form["email"]
             print("Only single mail is running")
             from Auto_mail import single_mail
-            single_mail(email)
+            # single_mail(email)
+            pass
             e = Email_Model(Email=email)
             db.session.add(e)
             db.session.commit()        
     return render_template("index.html")
+
+@app.route("/administrator", methods=["POST", "GET"])
+def Admin():
+    if request.method == "POST":
+        username = request.form["Username"]
+        password = request.form["password"]
+        admi = Crediantials.query.filter_by(
+            username=username, password=password
+        ).first()
+        if admi:
+            details = Detail_Model.query.all()
+            return render_template("Database.html", details=details)
+        else:
+            return render_template("403.html")
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
