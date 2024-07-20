@@ -76,7 +76,6 @@ def index():
             except Exception as e:
                 print(e)
             try:
-                pass
                 from Auto_mail import send_mail
 
                 mail = send_mail(name, email, mobile, msg)
@@ -97,7 +96,6 @@ def index():
             except Exception as e:
                 print(e)
             try:
-                pass
                 from Auto_mail import single_mail
 
                 mail = single_mail(email)
