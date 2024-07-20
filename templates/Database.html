@@ -72,6 +72,8 @@
   <main>
     <div class="container text-center">
       <button class="btn btn-primary" onclick="exportToCSV()">Export to CSV</button>
+      <a class="btn btn-primary" href="">Email Database</a>
+
       <script>
         function exportToCSV() {
           const rows = document.querySelectorAll('table tr');
@@ -98,32 +100,61 @@
               User Details
             </div>
             <div class="table-responsive">
-              <table class="table table-striped table-hover table-bordered align-middle">
-                <caption>List of users</caption>
-                <thead class="table-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Message</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for details in details %}
-                  <tr class="table-primary">
-                    <th scope="row">{{ loop.index }}</th>
-                    <td>{{ details.Name }}</td>
-                    <td>{{ details.Email_ID }}</td>
-                    <td>{{ details.Mobile }}</td>
-                    <td>{{ details.Message }}</td>
-                    <td>{{ details.Date }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+              <div class="row">
+                <div class="col">
+                  <table class="table table-striped table-hover table-bordered align-middle">
+                    <caption>List of users</caption>
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- User details loop -->
+                      {% for details in details %}
+                      <tr class="table-primary">
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ details.Name }}</td>
+                        <td>{{ details.Email_ID }}</td>
+                        <td>{{ details.Mobile }}</td>
+                        <td>{{ details.Message }}</td>
+                        <td>{{ details.Date }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col">
+                  <table class="table table-striped table-hover table-bordered align-middle">
+                    <caption>Email Details</caption>
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Email Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Email details loop -->
+                      {% for email in email %}
+                      <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ email.Email }}</td>
+                        <td>{{ email.Date }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
             <div class="card-footer text-muted">
               User data updated regularly
             </div>

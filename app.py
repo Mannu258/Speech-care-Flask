@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime,timedelta
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -24,14 +24,15 @@ mail.init_app(app)
 with app.app_context():
     db.create_all()
 
-
 class Detail_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(60), nullable=False)
     Email_ID = db.Column(db.String(120), nullable=False)
     Mobile = db.Column(db.String(10), nullable=False)
     Message = db.Column(db.Text, nullable=False)
-    Date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    def get_ist_now():
+        return datetime.utcnow() + timedelta(hours=5, minutes=30)
+    Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
     def __repr__(self):
         return f"<Details {self.Name} {self.Date}>"
@@ -49,7 +50,9 @@ class Crediantials(db.Model):
 class Email_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Email = db.Column(db.String(120), unique=True, nullable=False)
-    Date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    def get_ist_now():
+        return datetime.utcnow() + timedelta(hours=5, minutes=30)
+    Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
     def __repr__(self):
         return f"<Email {self.Email} {self.Date}>"
@@ -73,6 +76,7 @@ def index():
             except Exception as e:
                 print(e)
             try:
+                pass
                 from Auto_mail import send_mail
 
                 mail = send_mail(name, email, mobile, msg)
@@ -93,6 +97,7 @@ def index():
             except Exception as e:
                 print(e)
             try:
+                pass
                 from Auto_mail import single_mail
 
                 mail = single_mail(email)
@@ -115,8 +120,9 @@ def Admin():
             username=username, password=password
         ).first()
         if admi:
+            email = Email_Model.query.all()
             details = Detail_Model.query.all()
-            return render_template("Database.html", details=details)
+            return render_template("Database.html", details=details,email=email)
     return render_template("login.html")
 
 
