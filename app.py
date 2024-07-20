@@ -28,14 +28,14 @@ with app.app_context():
 class Detail_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(60), nullable=False)
-    Email_ID = db.Column(db.String(120), unique=True, nullable=False)
+    Email_ID = db.Column(db.String(120), nullable=False)
     Mobile = db.Column(db.String(10), nullable=False)
     Message = db.Column(db.Text, nullable=False)
     Date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return f"<Details {self.Name} {self.Date}>"
-    
+
 
 class Crediantials(db.Model):
     ID = db.Column(db.Integer, primary_key=True)
@@ -65,28 +65,46 @@ def index():
             msg = request.form["msg"]
             print("All details is running")
             try:
-                details = Detail_Model(Name=name, Email_ID=email, Mobile=mobile, Message=msg)
+                details = Detail_Model(
+                    Name=name, Email_ID=email, Mobile=mobile, Message=msg
+                )
                 db.session.add(details)
                 db.session.commit()
             except Exception as e:
                 print(e)
             try:
                 from Auto_mail import send_mail
-                pass
-                # send_mail(name, email, mobile, msg)
+
+                mail = send_mail(name, email, mobile, msg)
+                if mail:
+                    pass
+                else:
+                    return "An unexpected error occurred. Please try again later."
             except Exception as e:
                 print(f"An error occurred: {e}")
             return render_template("Thank-You.html")
         except:
             email = request.form["email"]
             print("Only single mail is running")
-            from Auto_mail import single_mail
-            # single_mail(email)
-            pass
-            e = Email_Model(Email=email)
-            db.session.add(e)
-            db.session.commit()        
+            try:
+                e = Email_Model(Email=email)
+                db.session.add(e)
+                db.session.commit()
+            except Exception as e:
+                print(e)
+            try:
+                from Auto_mail import single_mail
+
+                mail = single_mail(email)
+                if mail:
+                    pass
+                else:
+                    return "An unexpected error occurred. Please try again later."
+            except Exception:
+                return "An unexpected error occurred. Please try again later."
+
     return render_template("index.html")
+
 
 @app.route("/administrator", methods=["POST", "GET"])
 def Admin():
@@ -99,9 +117,6 @@ def Admin():
         if admi:
             details = Detail_Model.query.all()
             return render_template("Database.html", details=details)
-        else:
-            return render_template("403.html")
-
     return render_template("login.html")
 
 

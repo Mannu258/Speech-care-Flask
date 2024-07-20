@@ -17,7 +17,7 @@ with app.app_context():
             )
             autoreply_msg.body = f"Dear {name},\n\nThank you for your submission. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"
             mail.send(autoreply_msg)
-            return "Emails sent successfully"
+            return True
         except Exception as e:
             return f"Error sending emails: {e}"
     def single_mail(email):
@@ -28,4 +28,6 @@ with app.app_context():
             )
         autoreply_msg.body = f"Thank you for Sharing your Email. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"
         mail.send(autoreply_msg)
-        return "Emails sent successfully"
+        return True
+
+
