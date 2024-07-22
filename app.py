@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime,timedelta
 from flask_mail import Mail, Message
@@ -122,6 +122,12 @@ def Admin():
             details = Detail_Model.query.all()
             return render_template("Database.html", details=details,email=email)
     return render_template("login.html")
+
+
+@app.route("/robots.txt")
+@app.route("/sitemap.xml")
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 if __name__ == "__main__":
