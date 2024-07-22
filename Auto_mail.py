@@ -5,14 +5,14 @@ with app.app_context():
         try:
             submission_msg = Message(
                 subject="New Submission",
-                sender="jeemannu90@gmail.com",
-                recipients=["mandeepkumarmannu123@gmail.com"],
+                sender="support@speechcare.in",
+                recipients=[f"{email}"],
             )
             submission_msg.body = f"Dear Team,\n\nYou have received a new submission from {name}:\n\nSubmission Details:\n{msg}\n\nContact Information:\nEmail: {email}\nMobile: {mobile}\n\nBest regards,\nSpeech Care"
             mail.send(submission_msg)
             autoreply_msg = Message(
                 subject="Thank You for the Submission",
-                sender="jeemannu90@gmail.com",
+                sender="support@speechcare.in",
                 recipients=[email],
             )
             autoreply_msg.body = f"Dear {name},\n\nThank you for your submission. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"
@@ -23,7 +23,7 @@ with app.app_context():
     def single_mail(email):
         autoreply_msg = Message(
                 subject="Thank You for the Submission",
-                sender="jeemannu90@gmail.com",
+                sender="support@speechcare.in",
                 recipients=[email],
             )
         autoreply_msg.body = f"Thank you for Sharing your Email. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"

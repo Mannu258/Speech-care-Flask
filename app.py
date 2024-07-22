@@ -10,10 +10,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
 db = SQLAlchemy(app)
 
 
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_SERVER"] = "smtp.hostinger.com"
 app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = "jeemannu90@gmail.com"
-app.config["MAIL_PASSWORD"] = "icbh jolb cnuv dnbq"
+app.config["MAIL_USERNAME"] = "support@speechcare.in"
+app.config["MAIL_PASSWORD"] = "Mannu$123"
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USE_SSL"] = True
 
