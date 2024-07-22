@@ -124,6 +124,11 @@ def Admin():
     return render_template("login.html")
 
 
+@app.route("/assisment",methods=["POST", "GET"])
+def Assisment():
+    return render_template("Assisment.html")
+
+
 @app.route("/robots.txt")
 @app.route("/sitemap.xml")
 def static_from_root():
