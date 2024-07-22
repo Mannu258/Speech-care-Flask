@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Speech Care</title>
+    <meta name="description"
+        content="Expert speech therapy services for children and adults. Improve communication skills with our certified therapists. Book a consultation today!">
+    <meta name="keywords"
+        content="speech therapy, speech care, language therapy, stuttering, articulation, language development, speech pathologist ,communication disorders">
+    <link rel="canonical" href="https://www.speechcare.in/our-services" />
+    <meta property="og:title" content="SpeechCare: Expert Speech Therapy Services" />
+    <meta property="og:description"
+        content="Unlock better communication skills with our certified therapists. Book a consultation today!" />
+    <meta property="og:image" content="https://www.speechcare.in/images/speechcare-logo.png" />
+    <meta property="og:url" content="https://www.speechcare.in/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SpeechCare: Expert Speech Therapy Services" />
+    <meta name="twitter:description"
+        content="Unlock better communication skills with our certified therapists. Book a consultation today!" />
+    <meta name="twitter:image" content="https://www.speechcare.in/images/speechcare-logo.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "SpeechCare",
+      "url": "https://www.speechcare.in/",
+      "logo": "https://www.speechcare.in/images/speechcare-logo.png"
+    }
+  </script>
+
+
+
+
+
+    <!-- <title>Expert Speech Therapists: Treat Stuttering with Convenient Teletherapy Sessions</title> -->
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawsom-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/slider/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/slider/css/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/custom.css') }}" />
+
+</head>
+
+<body>
+    <style>
+        body{
+        overflow: hidden;
+        }
+        .container{
+            max-width: 600px; /* Set a maximum width for the container */
+
+        }
+    </style>
+
+
+    <!-- ################# Header Starts Here#######################--->
+    <header id="menu-jk">
+
+        <div id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+
+
+                        <img class="logo" src="{{ url_for('static', filename='assets/images/logo.png') }}" alt="">
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i
+                                class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                    <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/#services">Services</a></li>
+                            <li><a href="/#about_us">About Us</a></li>
+                            <li><a href="/#contact_us">Contact Us</a></li>
+                            <li><a href="/#Social">Social</a></li>
+                            <li><a download="Speak with Confidence: A Speech Care Tutorial.mp4" target="_blank"
+                                    href="{{ url_for('static', filename='assets/Video/Speak with Confidence: A Speech Care Tutorial.mp4') }}">Tutorial</a>
+                            </li>
+                            <!-- <li><a href="#Blog">Blog</a></li> -->
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-2 d-none d-lg-block appoint">
+                        <a href="https://www.facebook.com/speechcare.in" target="_blank"><i
+                                class="fab fa-facebook fa-2x" id="icon"></i></a>
+                        <a href="https://www.instagram.com/speechcare.in?igsh=MWtvNGdreTJ4ZWh6Zw==" target="_blank"><i
+                                class="fab fa-instagram fa-2x ml-2" id="icon"></i></a>
+                        <a href="tel:+919311125459" target="_blank"><i class="fab fa-whatsapp fa-2x ml-2"
+                                id="icon"></i></a>
+                        <a href="https://www.youtube.com/@speechcare." target="_blank"><i
+                                class="fab fa-youtube fa-2x ml-2" id="icon"></i></a>
+
+                    </div>
+
+                </div>
+            </div>
+    </header>
+
+
+    <!-- ################# Slider Starts Here#######################--->
+
+    <!--***************************** Slider Starts Here *****************************-->
+    <a href="https://api.whatsapp.com/send?phone=+919311135459&text=Hello%2C%20I%27m%20interested%20in%20your%20therapy."
+        class="fixed-button whatsapp-button">
+
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+    <div class="container mt-5">
+        <h1 class="mb-4">Assessment Questions</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>1</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td></td>
+                    <td>I experience stuttering during conversations.</td>
+                    <td><input type="radio" name="q1" value="0"></td>
+                    <td><input type="radio" name="q1" value="1"></td>
+                    <td><input type="radio" name="q1" value="2"></td>
+                    <td><input type="radio" name="q1" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>2</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>My stuttering is noticeable to others.</td>
+                    <td><input type="radio" name="q2" value="0"></td>
+                    <td><input type="radio" name="q2" value="1"></td>
+                    <td><input type="radio" name="q2" value="2"></td>
+                    <td><input type="radio" name="q2" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>3</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
+                    <td><input type="radio" name="q3" value="0"></td>
+                    <td><input type="radio" name="q3" value="1"></td>
+                    <td><input type="radio" name="q3" value="2"></td>
+                    <td><input type="radio" name="q3" value="3"></td>
+                </tr>
+
+                <!-- Add more questions here -->
+                <tr>
+                    <th>4</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>My stuttering is noticeable to others.</td>
+                    <td><input type="radio" name="q2" value="0"></td>
+                    <td><input type="radio" name="q2" value="1"></td>
+                    <td><input type="radio" name="q2" value="2"></td>
+                    <td><input type="radio" name="q2" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>5</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>I experience stuttering during conversations.</td>
+                    <td><input type="radio" name="q1" value="0"></td>
+                    <td><input type="radio" name="q1" value="1"></td>
+                    <td><input type="radio" name="q1" value="2"></td>
+                    <td><input type="radio" name="q1" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>6</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>My stuttering is noticeable to others.</td>
+                    <td><input type="radio" name="q2" value="0"></td>
+                    <td><input type="radio" name="q2" value="1"></td>
+                    <td><input type="radio" name="q2" value="2"></td>
+                    <td><input type="radio" name="q2" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>7</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
+                    <td><input type="radio" name="q3" value="0"></td>
+                    <td><input type="radio" name="q3" value="1"></td>
+                    <td><input type="radio" name="q3" value="2"></td>
+                    <td><input type="radio" name="q3" value="3"></td>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td>I experience stuttering during conversations.</td>
+                    <td><input type="radio" name="q1" value="0"></td>
+                    <td><input type="radio" name="q1" value="1"></td>
+                    <td><input type="radio" name="q1" value="2"></td>
+                    <td><input type="radio" name="q1" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>9</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>My stuttering is noticeable to others.</td>
+                    <td><input type="radio" name="q2" value="0"></td>
+                    <td><input type="radio" name="q2" value="1"></td>
+                    <td><input type="radio" name="q2" value="2"></td>
+                    <td><input type="radio" name="q2" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>10</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
+                    <td><input type="radio" name="q3" value="0"></td>
+                    <td><input type="radio" name="q3" value="1"></td>
+                    <td><input type="radio" name="q3" value="2"></td>
+                    <td><input type="radio" name="q3" value="3"></td>
+                </tr>
+
+                <!-- Add more questions here -->
+                <tr>
+                    <th>11</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
+                    <td><input type="radio" name="q3" value="0"></td>
+                    <td><input type="radio" name="q3" value="1"></td>
+                    <td><input type="radio" name="q3" value="2"></td>
+                    <td><input type="radio" name="q3" value="3"></td>
+                </tr>
+                <tr>
+                    <th>12</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td>I experience stuttering during conversations.</td>
+                    <td><input type="radio" name="q1" value="0"></td>
+                    <td><input type="radio" name="q1" value="1"></td>
+                    <td><input type="radio" name="q1" value="2"></td>
+                    <td><input type="radio" name="q1" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>13</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>My stuttering is noticeable to others.</td>
+                    <td><input type="radio" name="q2" value="0"></td>
+                    <td><input type="radio" name="q2" value="1"></td>
+                    <td><input type="radio" name="q2" value="2"></td>
+                    <td><input type="radio" name="q2" value="3"></td>
+                </tr>
+                <!-- Add more questions here -->
+                <tr>
+                    <th>14</th>
+                    <th>Question</th>
+                    <th>Never</th>
+                    <th>Rarely</th>
+                    <th>Sometimes</th>
+                    <th>Frequently</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
+                    <td><input type="radio" name="q3" value="0"></td>
+                    <td><input type="radio" name="q3" value="1"></td>
+                    <td><input type="radio" name="q3" value="2"></td>
+                    <td><input type="radio" name="q3" value="3"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<div class="container">
+    <section id="Social">
+        Web: <a href="/" class="">www.speechcare.in</a><br>
+        <span>
+            <a href="https://www.facebook.com/speechcare.in" target="_blank"><i class="fab fa-facebook fa-4x ml-1"
+                    id="icon"></i></a>
+            <a href="https://www.instagram.com/speechcare.in?igsh=MWtvNGdreTJ4ZWh6Zw==" target="_blank"><i
+                    class="fab fa-instagram fa-4x ml-3" id="icon"></i></a>
+            <a href="tel:+919311125459" target="_blank"><i class="fab fa-whatsapp fa-4x ml-3" id="icon"></i></a>
+            <a href="https://www.youtube.com/@speechcare." target="_blank"><i class="fab fa-youtube fa-4x ml-3"
+                    id="icon"></i></a>
+        </span>
+        </address>
+    </section>
+</div>
+
+    </footer>
+    <div class="copy">
+        <div class="container">
+            <a href="https://www.mandeep-developer.site/">2024 &copy; All Rights Reserved | Designed and Developed by
+                Developer</a>
+
+            <span>
+                <a href="https://www.mandeep-developer.site/" target="_blank"><i class="far fa-user-circle"></i></a>
+                <a href="https://github.com/Mannu258" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/Mannu_258" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/mandeep-mishra-843378223/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </span>
+        </div>
+
+    </div>
+
+</body>
+<script src="{{ url_for('static', filename='assets/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugins/scroll-nav/js/jquery.easing.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/plugins/scroll-nav/js/scrolling-nav.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+</body>
+
+</html>
