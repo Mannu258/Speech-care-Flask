@@ -6,7 +6,7 @@ with app.app_context():
             submission_msg = Message(
                 subject="New Submission",
                 sender="support@speechcare.in",
-                recipients=[f"{email}"],
+                recipients=["kumarjha94@gmail.com","support@speechcare.in"],
             )
             submission_msg.body = f"Dear Team,\n\nYou have received a new submission from {name}:\n\nSubmission Details:\n{msg}\n\nContact Information:\nEmail: {email}\nMobile: {mobile}\n\nBest regards,\nSpeech Care"
             mail.send(submission_msg)
@@ -24,7 +24,7 @@ with app.app_context():
         autoreply_msg = Message(
                 subject="Thank You for the Submission",
                 sender="support@speechcare.in",
-                recipients=[email],
+                recipients=[f"{email}","kumarjha94@gmail.com"],
             )
         autoreply_msg.body = f"Thank you for Sharing your Email. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"
         mail.send(autoreply_msg)
