@@ -68,7 +68,7 @@ Dear {name},
 
 Thank you for completing the self-assessment for stuttering on Speechcare.in.
 
-Your initial diagnosis based on the self-assessment is as follows: **{Score}**
+Your initial diagnosis based on the self-assessment is as follows Your Stuttering Level: **{Score}**
 
 Please note that this self-assessment is for preliminary purposes only and may not provide a fully accurate diagnosis. For a comprehensive evaluation and personalized treatment plan, we recommend consulting with a licensed speech therapist or visiting Speechcare.in.
 

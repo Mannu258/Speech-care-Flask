@@ -39,6 +39,7 @@
 
 header .header-nav .nav-img img {
   width: 50px;
+  margin-top: 6px;
 }
 
 .fixed-button {
