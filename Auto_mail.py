@@ -1,4 +1,4 @@
-from app import mail, Message, app
+from app import Message, app, mail
 
 with app.app_context():
 
@@ -41,7 +41,17 @@ with app.app_context():
         mail.send(autoreply_msg)
         return True
 
-    def assessment_mail(name, email):
+    def assessment_mail(name, email, sum):
+        Score = ""
+        if sum == 0:
+            Score = "Normal"
+        elif sum > 0 and sum <= 10:
+            Score = "Mild"
+        elif sum > 10 and sum <= 20:
+            Score = "Moderate"
+        elif sum > 20 and sum <= 30:
+            Score = "severe"
+
         try:
             autoreply_msg = Message(
                 subject="Thank You for the Assessment",
@@ -53,15 +63,28 @@ with app.app_context():
                     f"{email}",
                 ],
             )
-            autoreply_msg.body = (
-                f"Dear {name},\n\n"
-                "Thank you for submitting your assessment. Our dedicated team will carefully review it and provide feedback soon.\n\n"
-                "If you have any urgent questions or concerns, feel free to reach out to us.\n\n"
-                "Thanks and regards,\nSpeech Care"
-            )
+            autoreply_msg.body = f"""
+Dear {name},
+
+Thank you for completing the self-assessment for stuttering on Speechcare.in.
+
+Your initial diagnosis based on the self-assessment is as follows: **{Score}**
+
+Please note that this self-assessment is for preliminary purposes only and may not provide a fully accurate diagnosis. For a comprehensive evaluation and personalized treatment plan, we recommend consulting with a licensed speech therapist or visiting Speechcare.in.
+
+If you have any questions or would like to schedule a professional consultation, please feel free to reply to this email or visit our website.
+
+Thank you for choosing Speechcare.in.
+
+Best regards,
+Speechcare.in Team
+speechcare.in
+
+---
+
+*Disclaimer: The self-assessment results are not a substitute for professional evaluation and advice. Always consult with a qualified healthcare provider for personalized guidance.*
+"""
             mail.send(autoreply_msg)
             return True
         except Exception as e:
             return f"{e}"
-            
-        

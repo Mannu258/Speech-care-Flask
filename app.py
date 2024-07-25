@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request,send_from_directory
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
+
+from flask import Flask, render_template, request, send_from_directory
 from flask_mail import Mail, Message
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -24,14 +25,17 @@ mail.init_app(app)
 with app.app_context():
     db.create_all()
 
+
 class Detail_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(60), nullable=False)
     Email_ID = db.Column(db.String(120), nullable=False)
     Mobile = db.Column(db.String(10), nullable=False)
     Message = db.Column(db.Text, nullable=False)
+
     def get_ist_now():
         return datetime.utcnow() + timedelta(hours=5, minutes=30)
+
     Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
     def __repr__(self):
@@ -50,21 +54,26 @@ class Crediantials(db.Model):
 class Email_Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Email = db.Column(db.String(120), unique=True, nullable=False)
+
     def get_ist_now():
         return datetime.utcnow() + timedelta(hours=5, minutes=30)
+
     Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
     def __repr__(self):
         return f"<Email {self.Email} {self.Date}>"
-    
+
+
 class Questions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(60), nullable=False)
     Age = db.Column(db.Integer, nullable=False)
     Mobile = db.Column(db.String(10), nullable=False)
     Email = db.Column(db.Text, nullable=False)
+
     def get_ist_now():
         return datetime.utcnow() + timedelta(hours=5, minutes=30)
+
     Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
     Q1 = db.Column(db.Integer, nullable=False)
@@ -76,7 +85,8 @@ class Questions(db.Model):
     Q7 = db.Column(db.Integer, nullable=False)
     Q8 = db.Column(db.Integer, nullable=False)
     Q9 = db.Column(db.Integer, nullable=False)
-    Q10 = db.Column(db.Integer, nullable=False) 
+    Q10 = db.Column(db.Integer, nullable=False)
+
 
 @app.route("/", methods=["POST", "GET"])
 def index():
@@ -138,20 +148,20 @@ def Admin():
             username=username, password=password
         ).first()
         if admi:
-            email = Email_Model.query.order_by(Questions.id.desc()).all()
-            details = Detail_Model.query.order_by(Questions.id.desc()).all()
-            return render_template("Database.html", details=details,email=email)
+            email = Email_Model.query.order_by(Email_Model.id.desc()).all()
+            details = Detail_Model.query.order_by(Detail_Model.id.desc()).all()
+            return render_template("Database.html", details=details, email=email)
     return render_template("login.html")
 
 
 @app.route("/assessment-admin", methods=["POST", "GET"])
-def Assessment():
+def Assessmentadmin():
     if request.method == "POST":
         username = request.form["Username"]
         password = request.form["password"]
         try:
             admi = Crediantials.query.filter_by(
-            username=username, password=password
+                username=username, password=password
             ).first()
         except Exception as e:
             print(e)
@@ -161,8 +171,8 @@ def Assessment():
     return render_template("a-login.html")
 
 
-@app.route("/assessment",methods=["POST", "GET"])
-def Assisment():
+@app.route("/speech-care-Assessment", methods=["POST", "GET"])
+def Assessment():
     if request.method == "POST":
         name = request.form["name"]
         age = request.form["age"]
@@ -178,14 +188,43 @@ def Assisment():
         Q8 = request.form["q8"]
         Q9 = request.form["q9"]
         Q10 = request.form["q10"]
-        print(name,age,Mobile,email)
-        print(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10)
+        print(name, age, Mobile, email)
+        print(Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+        sum = (
+            int(Q1)
+            + int(Q2)
+            + int(Q3)
+            + int(Q4)
+            + int(Q5)
+            + int(Q6)
+            + int(Q7)
+            + int(Q8)
+            + int(Q9)
+            + int(Q10)
+        )
+        print(sum)
         try:
             from Auto_mail import assessment_mail
-            Que = Questions(Name=name,Age=age,Mobile=Mobile,Email=email,Q1=Q1,Q2=Q2,Q3=Q3,Q4=Q4,Q5=Q5,Q6=Q6,Q7=Q7,Q8=Q8,Q9=Q9,Q10=Q10)
+
+            Que = Questions(
+                Name=name,
+                Age=age,
+                Mobile=Mobile,
+                Email=email,
+                Q1=Q1,
+                Q2=Q2,
+                Q3=Q3,
+                Q4=Q4,
+                Q5=Q5,
+                Q6=Q6,
+                Q7=Q7,
+                Q8=Q8,
+                Q9=Q9,
+                Q10=Q10,
+            )
             db.session.add(Que)
             db.session.commit()
-            mail = assessment_mail(name,email)
+            mail = assessment_mail(name, email, sum)
             if mail:
                 return render_template("Thank-You.html")
             else:

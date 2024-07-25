@@ -72,6 +72,7 @@
   <main>
     <div class="container text-center">
       <button class="btn btn-primary" onclick="exportToCSV()">Export to CSV</button>
+      <a href="{{ url_for('Assessmentadmin') }}" class="btn btn-primary">Assisment Admin</a>
       <script>
         function exportToCSV() {
           const rows = document.querySelectorAll('table tr');
