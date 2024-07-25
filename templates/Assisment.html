@@ -48,15 +48,6 @@
 </head>
 
 <body>
-    <style>
-        body{
-        overflow: hidden;
-        }
-        .container{
-            max-width: 600px; /* Set a maximum width for the container */
-
-        }
-    </style>
 
 
     <!-- ################# Header Starts Here#######################--->
@@ -75,10 +66,10 @@
                     <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/#services">Services</a></li>
-                            <li><a href="/#about_us">About Us</a></li>
-                            <li><a href="/#contact_us">Contact Us</a></li>
-                            <li><a href="/#Social">Social</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about_us">About Us</a></li>
+                            <li><a href="#contact_us">Contact Us</a></li>
+                            <li><a href="#Social">Social</a></li>
                             <li><a download="Speak with Confidence: A Speech Care Tutorial.mp4" target="_blank"
                                     href="{{ url_for('static', filename='assets/Video/Speak with Confidence: A Speech Care Tutorial.mp4') }}">Tutorial</a>
                             </li>
@@ -111,273 +102,362 @@
 
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
-    <div class="container mt-5">
-        <h1 class="mb-4">Assessment Questions</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>1</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-            </thead>
-            <tbody>
+    <style>
+        /* Container styling */
+        .container2 {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            /* Light gray background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-                <tr>
-                    <td></td>
-                    <td>I experience stuttering during conversations.</td>
-                    <td><input type="radio" name="q1" value="0"></td>
-                    <td><input type="radio" name="q1" value="1"></td>
-                    <td><input type="radio" name="q1" value="2"></td>
-                    <td><input type="radio" name="q1" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>2</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>My stuttering is noticeable to others.</td>
-                    <td><input type="radio" name="q2" value="0"></td>
-                    <td><input type="radio" name="q2" value="1"></td>
-                    <td><input type="radio" name="q2" value="2"></td>
-                    <td><input type="radio" name="q2" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>3</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
-                    <td><input type="radio" name="q3" value="0"></td>
-                    <td><input type="radio" name="q3" value="1"></td>
-                    <td><input type="radio" name="q3" value="2"></td>
-                    <td><input type="radio" name="q3" value="3"></td>
-                </tr>
+        /* Label styling */
+        .form-label {
+            font-weight: bold;
+            color: #333;
+            /* Dark gray text color */
+        }
 
-                <!-- Add more questions here -->
-                <tr>
-                    <th>4</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>My stuttering is noticeable to others.</td>
-                    <td><input type="radio" name="q2" value="0"></td>
-                    <td><input type="radio" name="q2" value="1"></td>
-                    <td><input type="radio" name="q2" value="2"></td>
-                    <td><input type="radio" name="q2" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>5</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
+        /* Custom radio button styling */
+        .form-check-input {
+            display: none;
+        }
 
-                <tr>
-                    <td></td>
-                    <td>I experience stuttering during conversations.</td>
-                    <td><input type="radio" name="q1" value="0"></td>
-                    <td><input type="radio" name="q1" value="1"></td>
-                    <td><input type="radio" name="q1" value="2"></td>
-                    <td><input type="radio" name="q1" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>6</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>My stuttering is noticeable to others.</td>
-                    <td><input type="radio" name="q2" value="0"></td>
-                    <td><input type="radio" name="q2" value="1"></td>
-                    <td><input type="radio" name="q2" value="2"></td>
-                    <td><input type="radio" name="q2" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>7</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
-                    <td><input type="radio" name="q3" value="0"></td>
-                    <td><input type="radio" name="q3" value="1"></td>
-                    <td><input type="radio" name="q3" value="2"></td>
-                    <td><input type="radio" name="q3" value="3"></td>
-                </tr>
-                <tr>
-                    <th>8</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
+        .form-check-label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            color: #555;
+            /* Slightly darker text color */
+        }
 
-                    <td></td>
-                    <td>I experience stuttering during conversations.</td>
-                    <td><input type="radio" name="q1" value="0"></td>
-                    <td><input type="radio" name="q1" value="1"></td>
-                    <td><input type="radio" name="q1" value="2"></td>
-                    <td><input type="radio" name="q1" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>9</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>My stuttering is noticeable to others.</td>
-                    <td><input type="radio" name="q2" value="0"></td>
-                    <td><input type="radio" name="q2" value="1"></td>
-                    <td><input type="radio" name="q2" value="2"></td>
-                    <td><input type="radio" name="q2" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>10</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
-                    <td><input type="radio" name="q3" value="0"></td>
-                    <td><input type="radio" name="q3" value="1"></td>
-                    <td><input type="radio" name="q3" value="2"></td>
-                    <td><input type="radio" name="q3" value="3"></td>
-                </tr>
+        .form-check-label::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #007bff;
+            border-radius: 50%;
+            background-color: #fff;
+            /* White background for the circle */
+        }
 
-                <!-- Add more questions here -->
-                <tr>
-                    <th>11</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
-                    <td><input type="radio" name="q3" value="0"></td>
-                    <td><input type="radio" name="q3" value="1"></td>
-                    <td><input type="radio" name="q3" value="2"></td>
-                    <td><input type="radio" name="q3" value="3"></td>
-                </tr>
-                <tr>
-                    <th>12</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
+        .form-check-input:checked+.form-check-label::before {
+            background-color: #007bff;
+            border-color: #007bff;
+            /* Darker border color when selected */
+        }
 
-                    <td></td>
-                    <td>I experience stuttering during conversations.</td>
-                    <td><input type="radio" name="q1" value="0"></td>
-                    <td><input type="radio" name="q1" value="1"></td>
-                    <td><input type="radio" name="q1" value="2"></td>
-                    <td><input type="radio" name="q1" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>13</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>My stuttering is noticeable to others.</td>
-                    <td><input type="radio" name="q2" value="0"></td>
-                    <td><input type="radio" name="q2" value="1"></td>
-                    <td><input type="radio" name="q2" value="2"></td>
-                    <td><input type="radio" name="q2" value="3"></td>
-                </tr>
-                <!-- Add more questions here -->
-                <tr>
-                    <th>14</th>
-                    <th>Question</th>
-                    <th>Never</th>
-                    <th>Rarely</th>
-                    <th>Sometimes</th>
-                    <th>Frequently</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>I have difficulty speaking in certain situations (e.g., phone calls, public speaking).</td>
-                    <td><input type="radio" name="q3" value="0"></td>
-                    <td><input type="radio" name="q3" value="1"></td>
-                    <td><input type="radio" name="q3" value="2"></td>
-                    <td><input type="radio" name="q3" value="3"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            /* White text color */
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <main>
+        <div class="container  mt-5">
+            <h1 class="mb-4">Assessment Questions</h1>
+            <form method="post" action="/assessment">
+                <!-- Name -->
+                <div class="container2 mb-3">
+                    <h3 class="h3">Attention: 🚀</h3>
+                    <p>This field is required. You can't proceed without filling it out.</p>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="number" class="form-control" id="phone" name="phone" required
+                            oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10);"
+                            required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <!-- Question 1 -->
+                <div class="container2">
+                    <h3 class="alert-heading">Attention: 🚀</h3>
+                    <p class="mb-0">All questions are mandatory. You can't submit the assignment form without answering
+                        every single one. So, please take a moment to fill out the form carefully.</p>
+                    <div class="mb-3">
+                        <label for="q1" class="form-label">1. I experience stuttering during conversations.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q1" value="0" required id="q1-0">
+                            <label class="form-check-label" for="q1-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q1" value="1" required id="q1-1">
+                            <label class="form-check-label" for="q1-1">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q1" value="2" required id="q1-2">
+                            <label class="form-check-label" for="q1-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q1" value="3" required id="q1-3">
+                            <label class="form-check-label" for="q1-3">Always</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="mb-3">
+                        <label for="q2" class="form-label">2. My stuttering is noticeable to others</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q2" value="0" required id="q2-0">
+                            <label class="form-check-label" for="q2-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q2" value="1" required id="q2-1">
+                            <label class="form-check-label" for="q2-1">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q2" value="2" required id="q2-2">
+                            <label class="form-check-label" for="q2-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q2" value="3" required id="q2-3">
+                            <label class="form-check-label" for="q2-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q3" class="form-label">3. I have difficulty speaking in certain situations (e.g.,
+                            phone calls, public speaking).</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q3" value="0" required id="q3-0">
+                            <label class="form-check-label" for="q3-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q3" value="1" required id="q3-3">
+                            <label class="form-check-label" for="q3-3">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q3" value="2" required id="q3-2">
+                            <label class="form-check-label" for="q3-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q3" value="3" required id="q3-3">
+                            <label class="form-check-label" for="q3-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q4" class="form-label">4. I feel anxious about speaking because of my
+                            stuttering.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q4" value="0" required id="q4-0">
+                            <label class="form-check-label" for="q4-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q4" value="1" required id="q4-4">
+                            <label class="form-check-label" for="q4-4">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q4" value="2" required id="q4-2">
+                            <label class="form-check-label" for="q4-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q4" value="3" required id="q4-3">
+                            <label class="form-check-label" for="q4-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q5" class="form-label">5. I avoid social situations due to my stuttering.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q5" value="0" required id="q5-0">
+                            <label class="form-check-label" for="q5-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q5" value="1" required id="q5-5">
+                            <label class="form-check-label" for="q5-5">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q5" value="2" required id="q5-2">
+                            <label class="form-check-label" for="q5-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q5" value="3" required id="q5-3">
+                            <label class="form-check-label" for="q5-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q6" class="form-label">6. I feel frustrated or angry because of my
+                            stuttering.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q6" value="0" required id="q6-0">
+                            <label class="form-check-label" for="q6-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q6" value="1" required id="q6-6">
+                            <label class="form-check-label" for="q6-6">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q6" value="2" required id="q6-2">
+                            <label class="form-check-label" for="q6-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q6" value="3" required id="q6-3">
+                            <label class="form-check-label" for="q6-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q7" class="form-label">7. I experience muscle tension in my face or neck when I
+                            stutter.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q7" value="0" required id="q7-0">
+                            <label class="form-check-label" for="q7-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q7" value="1" required id="q7-7">
+                            <label class="form-check-label" for="q7-7">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q7" value="2" required id="q7-2">
+                            <label class="form-check-label" for="q7-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q7" value="3" required id="q7-3">
+                            <label class="form-check-label" for="q7-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q8" class="form-label">8. I avoid making eye contact when I stutter.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q8" value="0" required id="q8-0">
+                            <label class="form-check-label" for="q8-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q8" value="1" required id="q8-8">
+                            <label class="form-check-label" for="q8-8">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q8" value="2" required id="q8-2">
+                            <label class="form-check-label" for="q8-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q8" value="3" required id="q8-3">
+                            <label class="form-check-label" for="q8-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q9" class="form-label">9. I avoid saying certain words because I fear I will
+                            stutter.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q9" value="0" required id="q9-0">
+                            <label class="form-check-label" for="q9-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q9" value="1" required id="q9-9">
+                            <label class="form-check-label" for="q9-9">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q9" value="2" required id="q9-2">
+                            <label class="form-check-label" for="q9-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q9" value="3" required id="q9-3">
+                            <label class="form-check-label" for="q9-3">Always</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="q10" class="form-label">10 . I notice my hands or legs shaking during stuttering
+                            episodes.</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q10" value="0" required id="q10-0">
+                            <label class="form-check-label" for="q10-0">Never</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q10" value="1" required id="q10-10">
+                            <label class="form-check-label" for="q10-10">Rarely</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q10" value="2" required id="q10-2">
+                            <label class="form-check-label" for="q10-2">Often</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="q10" value="3" required id="q10-3">
+                            <label class="form-check-label" for="q10-3">Always</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+    </main>
 
 
-<div class="container">
-    <section id="Social">
-        Web: <a href="/" class="">www.speechcare.in</a><br>
-        <span>
-            <a href="https://www.facebook.com/speechcare.in" target="_blank"><i class="fab fa-facebook fa-4x ml-1"
-                    id="icon"></i></a>
-            <a href="https://www.instagram.com/speechcare.in?igsh=MWtvNGdreTJ4ZWh6Zw==" target="_blank"><i
-                    class="fab fa-instagram fa-4x ml-3" id="icon"></i></a>
-            <a href="tel:+919311125459" target="_blank"><i class="fab fa-whatsapp fa-4x ml-3" id="icon"></i></a>
-            <a href="https://www.youtube.com/@speechcare." target="_blank"><i class="fab fa-youtube fa-4x ml-3"
-                    id="icon"></i></a>
-        </span>
-        </address>
-    </section>
-</div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        At SpeechCare, we’re passionate about hearing health. Our licensed audiologists blend expertise
+                        with compassion, ensuring personalized care for every patient. Our mission? To improve lives
+                        through better hearing and balance health.
+                    </p>
+                    <p>Whether you’re seeking diagnostics, rehabilitation,
+                        or preventive services, we’re here for you. Join our community, where diversity, ethical
+                        standards, and patient-centered care intersect. Visit us at (your clinic address) or call (your
+                        phone number) to embark on your hearing health journey together! 🌟12
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <h2>Useful Links</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="#about_us">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="contact" href="#contact_us">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        Email: <a href="mailto:support@speechcare.in" class="">support@speechcare.in</a><br>
+
+
+                        <section id="Social">
+                            Web: <a href="speechcare" class="">www.speechcare.in</a><br>
+                            <span>
+                                <a href="https://www.facebook.com/speechcare.in" target="_blank"><i
+                                        class="fab fa-facebook fa-4x ml-1" id="icon"></i></a>
+                                <a href="https://www.instagram.com/speechcare.in?igsh=MWtvNGdreTJ4ZWh6Zw=="
+                                    target="_blank"><i class="fab fa-instagram fa-4x ml-3" id="icon"></i></a>
+                                <a href="tel:+919311125459" target="_blank"><i class="fab fa-whatsapp fa-4x ml-3"
+                                        id="icon"></i></a>
+                                <a href="https://www.youtube.com/@speechcare." target="_blank"><i
+                                        class="fab fa-youtube fa-4x ml-3" id="icon"></i></a>
+                            </span>
+                    </address>
+
+                </div>
+            </div>
+        </div>
+        </section>
 
     </footer>
     <div class="copy">
@@ -405,6 +485,5 @@
 <script src="{{ url_for('static', filename='assets/plugins/scroll-nav/js/scrolling-nav.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
-</body>
 
 </html>

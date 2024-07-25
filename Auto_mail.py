@@ -1,12 +1,17 @@
 from app import mail, Message, app
 
 with app.app_context():
+
     def send_mail(name, email, mobile, msg):
         try:
             submission_msg = Message(
                 subject="New Submission",
                 sender="support@speechcare.in",
-                recipients=["kumarjha94@gmail.com","support@speechcare.in","speechcare.in@gmail.com"],
+                recipients=[
+                    "kumarjha94@gmail.com",
+                    "support@speechcare.in",
+                    "speechcare.in@gmail.com",
+                ],
             )
             submission_msg.body = f"Dear Team,\n\nYou have received a new submission from {name}:\n\nSubmission Details:\n{msg}\n\nContact Information:\nEmail: {email}\nMobile: {mobile}\n\nBest regards,\nSpeech Care"
             mail.send(submission_msg)
@@ -20,14 +25,43 @@ with app.app_context():
             return True
         except Exception as e:
             return f"Error sending emails: {e}"
+
     def single_mail(email):
         autoreply_msg = Message(
-                subject="Thank You for the Submission",
-                sender="support@speechcare.in",
-                recipients=[f"{email}","kumarjha94@gmail.com","support@speechcare.in","speechcare.in@gmail.com"],
-            )
+            subject="Thank You for the Submission",
+            sender="support@speechcare.in",
+            recipients=[
+                f"{email}",
+                "kumarjha94@gmail.com",
+                "support@speechcare.in",
+                "speechcare.in@gmail.com",
+            ],
+        )
         autoreply_msg.body = f"Thank you for Sharing your Email. Our team will review it and get back to you soon.\n\nThanks and regards,\nSpeech Care"
         mail.send(autoreply_msg)
         return True
 
-
+    def assessment_mail(name, email):
+        try:
+            autoreply_msg = Message(
+                subject="Thank You for the Assessment",
+                sender="support@speechcare.in",
+                recipients=[
+                    "kumarjha94@gmail.com",
+                    "support@speechcare.in",
+                    "speechcare.in@gmail.com",
+                    f"{email}",
+                ],
+            )
+            autoreply_msg.body = (
+                f"Dear {name},\n\n"
+                "Thank you for submitting your assessment. Our dedicated team will carefully review it and provide feedback soon.\n\n"
+                "If you have any urgent questions or concerns, feel free to reach out to us.\n\n"
+                "Thanks and regards,\nSpeech Care"
+            )
+            mail.send(autoreply_msg)
+            return True
+        except Exception as e:
+            return f"{e}"
+            
+        
