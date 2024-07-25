@@ -56,7 +56,27 @@ class Email_Model(db.Model):
 
     def __repr__(self):
         return f"<Email {self.Email} {self.Date}>"
+    
+class Questions(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    Name = db.Column(db.String(60), nullable=False)
+    Age = db.Column(db.Integer, nullable=False)
+    Mobile = db.Column(db.String(10), nullable=False)
+    Email = db.Column(db.Text, nullable=False)
+    def get_ist_now():
+        return datetime.utcnow() + timedelta(hours=5, minutes=30)
+    Date = db.Column(db.DateTime, nullable=False, default=get_ist_now())
 
+    Q1 = db.Column(db.Integer, nullable=False)
+    Q2 = db.Column(db.Integer, nullable=False)
+    Q3 = db.Column(db.Integer, nullable=False)
+    Q4 = db.Column(db.Integer, nullable=False)
+    Q5 = db.Column(db.Integer, nullable=False)
+    Q6 = db.Column(db.Integer, nullable=False)
+    Q7 = db.Column(db.Integer, nullable=False)
+    Q8 = db.Column(db.Integer, nullable=False)
+    Q9 = db.Column(db.Integer, nullable=False)
+    Q10 = db.Column(db.Integer, nullable=False) 
 
 @app.route("/", methods=["POST", "GET"])
 def index():
@@ -118,10 +138,61 @@ def Admin():
             username=username, password=password
         ).first()
         if admi:
-            email = Email_Model.query.all()
-            details = Detail_Model.query.all()
+            email = Email_Model.query.order_by(Questions.id.desc()).all()
+            details = Detail_Model.query.order_by(Questions.id.desc()).all()
             return render_template("Database.html", details=details,email=email)
     return render_template("login.html")
+
+
+@app.route("/assessment-admin", methods=["POST", "GET"])
+def Assessment():
+    if request.method == "POST":
+        username = request.form["Username"]
+        password = request.form["password"]
+        try:
+            admi = Crediantials.query.filter_by(
+            username=username, password=password
+            ).first()
+        except Exception as e:
+            print(e)
+        if admi:
+            Ques = Questions.query.order_by(Questions.id.desc()).all()
+            return render_template("a-Database.html", Ques=Ques)
+    return render_template("a-login.html")
+
+
+@app.route("/assessment",methods=["POST", "GET"])
+def Assisment():
+    if request.method == "POST":
+        name = request.form["name"]
+        age = request.form["age"]
+        Mobile = request.form["phone"]
+        email = request.form["email"]
+        Q1 = request.form["q1"]
+        Q2 = request.form["q2"]
+        Q3 = request.form["q3"]
+        Q4 = request.form["q4"]
+        Q5 = request.form["q5"]
+        Q6 = request.form["q6"]
+        Q7 = request.form["q7"]
+        Q8 = request.form["q8"]
+        Q9 = request.form["q9"]
+        Q10 = request.form["q10"]
+        print(name,age,Mobile,email)
+        print(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10)
+        try:
+            from Auto_mail import assessment_mail
+            Que = Questions(Name=name,Age=age,Mobile=Mobile,Email=email,Q1=Q1,Q2=Q2,Q3=Q3,Q4=Q4,Q5=Q5,Q6=Q6,Q7=Q7,Q8=Q8,Q9=Q9,Q10=Q10)
+            db.session.add(Que)
+            db.session.commit()
+            mail = assessment_mail(name,email)
+            if mail:
+                return render_template("Thank-You.html")
+            else:
+                return f"{mail}"
+        except Exception as e:
+            print(e)
+    return render_template("Assisment.html")
 
 
 @app.route("/robots.txt")
