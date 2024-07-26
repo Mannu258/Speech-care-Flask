@@ -9,4 +9,9 @@
     <priority>1.00</priority>
   </url>
   <!-- Add more URLs here -->
+  <url>
+    <loc>https://www.speechcare.in/speech-care-Assessment</loc>
+    <lastmod>2024-07-26</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
