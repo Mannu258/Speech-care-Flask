@@ -88,6 +88,11 @@ class Questions(db.Model):
     Q10 = db.Column(db.Integer, nullable=False)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+
 @app.route("/", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
@@ -151,6 +156,8 @@ def Admin():
             email = Email_Model.query.order_by(Email_Model.id.desc()).all()
             details = Detail_Model.query.order_by(Detail_Model.id.desc()).all()
             return render_template("Database.html", details=details, email=email)
+        else:
+            return render_template("403.html")
     return render_template("login.html")
 
 
@@ -168,6 +175,8 @@ def Assessmentadmin():
         if admi:
             Ques = Questions.query.order_by(Questions.id.desc()).all()
             return render_template("a-Database.html", Ques=Ques)
+        else:
+            return render_template("403.html")
     return render_template("a-login.html")
 
 
