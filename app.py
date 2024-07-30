@@ -242,6 +242,10 @@ def Assessment():
             print(e)
     return render_template("Assisment.html")
 
+@app.route("/speech-care-tutorial")
+def Tutorial():
+    return render_template("Video.html")
+
 
 @app.route("/robots.txt")
 @app.route("/sitemap.xml")

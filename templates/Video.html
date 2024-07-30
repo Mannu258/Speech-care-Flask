@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Care</title>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <video id="myVideo" autoplay controls>
+        <source src="{{ url_for('static', filename='assets/Video/Speak with Confidence: A Speech Care Tutorial.mp4') }}"
+            type="video/mp4">
+        <!-- Add other video formats (e.g., WebM, Ogg) if needed -->
+    </video>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #myVideo {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <script>
+        const video = document.getElementById('myVideo');
+
+        // Request fullscreen mode when the video starts playing
+        video.addEventListener('play', () => {
+            video.requestFullscreen();
+        });
+    </script>
+</body>
+
+</html>
