@@ -252,6 +252,15 @@ def Tutorial():
 def static_from_root():
     return send_from_directory(app.static_folder, request.path[1:])
 
+@app.route("/speech-care/blog")
+def blog_post_view():
+    return render_template("blog_post_view.html")
+
+@app.route("/speech-care/blog/<string:param>")
+def show_blog_post(param):
+    from blog_return import blog_returns
+    text, img = blog_returns(param)
+    return render_template("show_blog_post.html", text=text, img=img)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
